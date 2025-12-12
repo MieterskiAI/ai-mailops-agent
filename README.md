@@ -54,9 +54,6 @@ Google Draft is created and ready for final approval / sending.
 
 ---
 
-## 📁 Repository Structure
-
-
 📦 email-ai-mailops-2.0
 │
 ├── README.md # Project overview
@@ -64,7 +61,6 @@ Google Draft is created and ready for final approval / sending.
 └── docs/
 └── zapier_steps.md # Step-by-step Zap setup
 
----
 
 ## ⚡ Why This Project Matters
 
