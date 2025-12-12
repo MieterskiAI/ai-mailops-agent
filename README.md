@@ -23,7 +23,7 @@ System automatically:
 ## 🔄 How the Pipeline Works (High-Level Flow)
 
 ### 1. Gmail Trigger – *New Email Arrives*
-Zapier captures email metadata + body.
+Zapier captures incoming email metadata + body.
 
 ### 2. AI Classification (OpenAI GPT)
 Model assigns:
@@ -54,13 +54,15 @@ Google Draft is created and ready for final approval / sending.
 
 ---
 
+## 📁 Repository Structure
 📦 email-ai-mailops-2.0
 │
-├── README.md # Project overview
-├── prompts.md # Prompts used in OpenAI steps
+├── README.md               # Project overview
+├── prompts.md              # Prompts used in OpenAI steps
 └── docs/
-└── zapier_steps.md # Step-by-step Zap setup
+    └── zapier_steps.md     # Step-by-step Zap setup
 
+---
 
 ## ⚡ Why This Project Matters
 
@@ -107,7 +109,7 @@ Email → Zapier → Extract fields → GPT classification & priority → Summar
 ## 👤 Author
 
 **MieterskiAI**  
-AI Automation Developer — building practical, production-ready AI systems using Zapier, GPT, RAG and workflow automation techniques.
+AI Automation Developer — building practical, production-ready AI systems using Zapier, GPT, RAG, and workflow automation techniques.
 
 ---
 
