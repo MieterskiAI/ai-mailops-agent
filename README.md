@@ -33,17 +33,25 @@ Incoming Email
 → Suggested Decision  
 → Human Action
 
+## 🤝 Human-in-the-Loop
 
-### 1. Gmail Trigger – *New Email Arrives*
+This system never sends or executes decisions automatically.  
+AI suggests actions, but final responsibility always belongs to the employee.
+
+---
+
+### How the Pipeline Works
+
+**1. Gmail Trigger – New Email Arrives**  
 Zapier captures incoming email metadata + body.
 
-### 2. AI Classification (OpenAI GPT)
+**2. AI Classification (OpenAI GPT)**  
 Model assigns:
-- **Type:** Lead / Support / Question / Urgent / Spam  
-- **Priority:** 1–10  
-- **Summary:** clean, short description
+- Type: Lead / Support / Question / Urgent / Spam  
+- Priority: 1–10  
+- Summary: clean, short description
 
-### 3. Data Cleanup (Formatter Steps)
+**3. Data Cleanup (Formatter Steps)**  
 Extracted components for Sheets & Gmail:
 - Timestamp  
 - Sender  
@@ -52,27 +60,27 @@ Extracted components for Sheets & Gmail:
 - Priority  
 - Summary  
 
-### 4. Log to Google Sheets
+**4. Log to Google Sheets**  
 System saves every message to `MailOps_Log` sheet.
 
-### 5. AI Draft Reply (OpenAI GPT)
+**5. AI Draft Reply (OpenAI GPT)**  
 AI generates a short, helpful reply:
 - No greeting  
 - No signature  
 - No invented facts  
 
-### 6. Gmail Draft Creation
+**6. Gmail Draft Creation**  
 Google Draft is created and ready for final approval / sending.
 
 ---
 
 ## 📁 Repository Structure
-📦 email-ai-mailops-2.0
-│
-├── README.md               # Project overview
-├── prompts.md              # Prompts used in OpenAI steps
-└── docs/
-    └── zapier_steps.md     # Step-by-step Zap setup
+
+📦 email-ai-mailops-2.0  
+├── README.md  
+├── prompts.md  
+└── docs/  
+&nbsp;&nbsp;&nbsp;&nbsp;└── zapier_steps.md  
 
 ---
 
@@ -80,22 +88,18 @@ Google Draft is created and ready for final approval / sending.
 
 Modern companies drown in repetitive support emails.
 
-This automation:
-
-- Reduces response time  
-- Prevents missed urgent messages  
-- Standardizes communication quality  
-- Saves **hours** of manual triage every week  
-- Creates full audit logs  
-- Is a **production-ready AI operations pipeline**
+This system supports operational decision making by:
+- reducing response time  
+- preventing missed urgent messages  
+- standardizing communication quality  
+- saving hours of manual triage every week  
+- creating full audit logs  
 
 Perfect for:
-
-- Customer service  
-- Lead qualification  
-- Internal operations teams  
-- Small businesses  
-- Anyone wanting real AI automation in workflow
+- customer service  
+- lead qualification  
+- internal operations teams  
+- small businesses  
 
 ---
 
@@ -121,11 +125,10 @@ Email → Zapier → Extract fields → GPT classification & priority → Summar
 ## 👤 Author
 
 **MieterskiAI**  
-AI Automation Developer — building practical, production-ready AI systems using Zapier, GPT, RAG, and workflow automation techniques.
+Junior AI Process & Decision Support Designer — designing human-centered AI workflows that help organizations regain control over complex operational processes.
 
 ---
 
 ## ⭐ Support
 
-If this project was helpful, leave a ⭐ on GitHub.  
-More AI-powered pipelines coming soon.
+If this project was helpful, leave a ⭐ on GitHub.
