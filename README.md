@@ -1,26 +1,38 @@
-# AI MailOps 2.0
+# AI MailOps 2.0 – Decision-Support System for Operational Email Triage
 
-Intelligent Email Automation System  
-Automated end-to-end pipeline for processing inbound emails using Zapier + OpenAI.
+Designing human-centered workflows that help operational teams regain control over chaotic inboxes.
 
-System automatically:
-- classifies messages (Lead / Support / Question / Spam / Urgent),
-- assigns priority (1–10),
-- generates a clean summary,
-- logs everything to Google Sheets,
-- and creates a ready-to-send **email draft in Gmail**.
+## 🧠 Business Context
 
----
+In many organizations, shared inboxes are a hidden bottleneck in operational processes.  
+Important cases get lost, priorities are unclear and decisions are made chaotically.
 
-## 🚀 Tech Stack
-- **Zapier**
-- **OpenAI (GPT-4o)**
-- **Gmail API**
-- **Google Sheets**
+This project is not about replacing people with automation.
 
----
+It is about designing a decision-support workflow that helps employees:
+- understand the intent of each message,
+- see what really matters,
+- and decide what to do next.
 
-## 🔄 How the Pipeline Works (High-Level Flow)
+## 🔁 Before / After
+
+**Before**
+- no prioritization  
+- manual inbox triage  
+- high risk of missing critical cases  
+
+**After**
+- structured decision flow  
+- AI-supported action suggestions  
+- faster reaction time of operational teams  
+
+## 🔄 Decision Flow
+
+Incoming Email  
+→ AI Intent Analysis  
+→ Suggested Decision  
+→ Human Action
+
 
 ### 1. Gmail Trigger – *New Email Arrives*
 Zapier captures incoming email metadata + body.
