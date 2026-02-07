@@ -1,139 +1,49 @@
-# AI MailOps Agent v0.1 — Decision Support System for Operational Email Triage
+# AI MailOps Agent — Decision Support Prototype (Human-in-the-Loop)
 
-A human-centered AI agent that helps people regain control over chaotic operational inboxes by providing clear decision context — not automation.
+This repository documents a **decision-support agent** for operational inbox triage. It is **not automation**: the agent never sends or deletes emails and does not execute actions on its own.
 
----
-## 🚧 Project Status
+## Repo Type
+- **AI agent / decision-support prototype** (documentation-first, human-in-the-loop).
 
-AI MailOps Agent v0.1 is a functional decision-support prototype focused on reasoning architecture and human-in-the-loop design.  
-The system is ready for validation with real operational teams.
-## 🧠 Business Context
+## What this does (concrete)
+- Converts incoming emails into a **Decision Context Card**.
+- Suggests a **recommended next action** and a **draft reply**.
+- Requires a **human decision** before any action is taken.
 
-In many organizations, shared inboxes silently destroy decision quality.  
-Important cases get lost, priorities blur, and people start reacting instead of deciding.
+## Quick start (no setup)
+1. Open the synthetic examples in `/examples`.
+2. Compare each `email_*.txt` with its `*_expected_decision_card.md`.
+3. (Optional) Run the sanity check script:
+   ```bash
+   python scripts/sanity_check.py
+   ```
 
-This system does **not replace employees**.
+## Quick start (local)
+There is no runnable pipeline code in this repo yet. When a runtime is added, this section will include installation steps, environment variables, and how to start the local service.
 
-It is designed to:
-- reduce cognitive overload,
-- highlight what really matters,
-- and guide operators toward the next safe decision.
+## Examples
+- `/examples/email_1.txt` + `/examples/email_1_expected_decision_card.md`
+- `/examples/email_2.txt` + `/examples/email_2_expected_decision_card.md`
+- `/examples/email_3.txt` + `/examples/email_3_expected_decision_card.md`
 
----
+## Documentation
+- Architecture: `/docs/architecture.md`
+- Guardrails (safety): `/docs/guardrails.md`
+- Evaluation rubric: `/docs/evaluation.md`
+- Privacy & logging: `/docs/privacy.md`
+- Reasoning prompts: `/agent_reasoning.md`
+- Portfolio audit: `/docs/portfolio_audit.md`
 
-## 🔁 Before / After
+## Roles
+- Operations/Process Analyst
+- Reporting/Data Quality
+- Decision Support
 
-**Before**
-- chaotic inbox  
-- reactive handling  
-- missed critical cases  
-- decisions based on stress, not clarity  
+### What this proves
+- Decision context can be standardized without auto-execution.
+- Risk and intent can be surfaced consistently for operator review.
+- Drafts can be produced safely under strict guardrails.
 
-**After**
-- clear decision context per message  
-- structured next-step suggestions  
-- operators regain control over their workflow  
-
----
-
-## 🧭 AI MailOps Agent — Core Idea
-
-This is not an email automation system.  
-It is a **Decision Navigation Agent**.
-
-Every incoming message is transformed into a **Decision Context Card** that answers:
-
-> *What should I do now, and why?*
-
----
-
-## 🗂 Decision Context Card
-
-Each email generates a card with:
-
-| Field | Meaning for the operator |
-|------|--------------------------|
-| Case Type | Lead / Support / Urgent |
-| Business Risk | low / medium / high |
-| AI Confidence | high / medium / low |
-| Recommended Path | reply / escalate / assign / ask |
-| Why this matters | one short sentence |
-| What you must decide | one concrete question |
-| Agent Voice | human guidance sentence |
-
----
-
-## 📐 Agent Architecture
-
-This repository separates **how the agent thinks** from **how it is implemented**.
-
-- **Decision & Reasoning Layer**  
-  → [`agent_reasoning.md`](./agent_reasoning.md)
-
-- **Implementation Layer**  
-  → [`docs/implementation_notes.md`](./docs/implementation_notes.md)
-
-This structure makes the system readable both for business stakeholders and technical teams.
-
----
-
-## 🗣 Agent Voice — Human Interface
-
-| Mode | Agent says |
-|------|-------------|
-| Lead | Otrzymałeś lead, któremu warto się przyjrzeć. |
-| Support | Czy mógłbyś zajrzeć? Coś jest tutaj nie tak. |
-| Urgent | Potrzebujesz więcej informacji, żeby bezpiecznie wykonać następny krok. |
-| Uncertain | Nie jestem w stanie niczego zaproponować, nie mam w zwyczaju zgadywać. |
-
-This language is designed to create decision intuition — not pressure.
-
----
-
-## 🔄 Decision Flow
-
-Incoming Email  
-→ Intent & Risk Analysis  
-→ **Decision Context Card**  
-→ Suggested Next Actions  
-→ **Human Decision**
-
-The system never executes actions on its own.
-
----
-
-## 🤝 Human-in-the-Loop
-
-AI does not decide.  
-It removes bad paths and shows the operator where thinking is required.
-
-The human always owns the final responsibility.
-
----
-
-## 🧩 How the Pipeline Works
-
-1. **Email Trigger** – new message arrives  
-2. **Intent & Risk Analysis** – case type, emotional signals, business risk  
-3. **Decision Context Card Generation** – decision map is built  
-4. **Decision Logging** – organizational memory  
-5. **Draft Support** – response draft prepared  
-6. **Human Action** – operator reviews and sends
-
----
-
-## ⚡ Why This Agent Matters
-
-It helps organizations:
-- reduce decision fatigue,  
-- avoid costly misclassification,  
-- improve response quality,  
-- and build trust in human-AI cooperation.
-
----
-
-## 👤 Author
-
-**MieterskiAI**  
-Junior AI Process & Decision Support Designer  
-Designing human-centered AI systems that help organizations regain control over complex operational processes.
+## Consistency: Not Automation
+- No auto-send, no deletion, no autonomous actions.
+- Human operator is always the final decision maker.
