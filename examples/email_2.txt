@@ -1,0 +1,10 @@
+Subject: PILNE: System nie działa od 30 minut
+
+Cześć,
+
+Od 30 minut nie możemy zalogować się do panelu. Cały zespół ma błąd 503. To blokuje nasze operacje.
+
+Potrzebujemy informacji, co się dzieje i kiedy wrócicie z usługą.
+
+Z poważaniem,
+Firma X
