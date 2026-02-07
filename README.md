@@ -24,7 +24,7 @@ This repository documents a **decision-support agent** for operational inbox tri
    ```
 
 ## Quick start (local)
-There is no runnable pipeline code in this repo yet. When a runtime is added, this section will include installation steps, environment variables, and how to start the local service.
+There is no runnable runtime code in this repo yet. When a runtime is added, this section will include installation steps, environment variables, and how to start the local service.
 
 ## Examples
 - `/examples/email_1.txt` + `/examples/email_1_expected_decision_card.md`
