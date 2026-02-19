@@ -1,56 +1,80 @@
-# AI MailOps Agent — Decision Support Prototype (Human-in-the-Loop)
+# Email Triage Decision-Routing Workflow (Human-in-the-Loop)
 
-This repository documents a **decision-support agent** for operational inbox triage. It is **not automation**: the agent never sends or deletes emails and does not execute actions on its own.
+A portfolio case study for **Business Automation / Process Automation**: route inbound email cases to the right path, escalate uncertainty, and keep human approval at critical decisions.
 
-## Suggested GitHub About & Topics
-- **GitHub About (1 line):** Decision-support prototype for inbox triage: converts an email into a Decision Context Card with risk/next-step/draft reply; human-in-the-loop (no autosend).
-- **Topics (tags):** decision-support, human-in-the-loop, ops, triage, guardrails, privacy, evaluation, python, portfolio
-- **Note:** About/Topics are set in the GitHub UI (not via git).
+## Problem
+Operations inboxes receive mixed requests (billing, access, incidents, vendor messages). Manual triage is slow, inconsistent, and hard to audit.
 
-## Repo Type
-- **AI agent / decision-support prototype** (documentation-first, human-in-the-loop).
+## Solution
+This project defines a **decision-routing workflow** that:
+- classifies email intent,
+- applies routing and risk rules,
+- generates a recommended next step and draft response,
+- requires a human gate before final action.
 
-## What this does (concrete)
-- Converts incoming emails into a **Decision Context Card**.
-- Suggests a **recommended next action** and a **draft reply**.
-- Requires a **human decision** before any action is taken.
+## Scope / Non-goals (Safety)
+- No auto-send, no deletion, no autonomous actions.
+- Draft replies are suggestions only; a human operator is always the final decision maker.
+- Examples are synthetic; do not store or commit real customer PII.
 
-## Quick start (no setup)
-1. Open the synthetic examples in `/examples`.
-2. Compare each `email_*.txt` with its `*_expected_decision_card.md`.
-3. (Optional) Run the sanity check script:
-   ```bash
-   python scripts/sanity_check.py
-   ```
+## Workflow
+1. Ingest email from shared mailbox.
+2. Build a Decision Context Card (intent, risk, recommendation, draft).
+3. Route by rules (standard path vs. edge-case queue).
+4. Trigger human review/approval for edge cases or high-risk items.
+5. Log decision outcome for audit and continuous improvement.
 
-## Quick start (local)
-There is no runnable runtime code in this repo yet. When a runtime is added, this section will include installation steps, environment variables, and how to start the local service.
+## Inputs / Outputs
+**Inputs**
+- Email subject/body + metadata (sender, timestamp, thread).
+- Routing rules and policy constraints.
 
-## Examples
-- `/examples/email_1.txt` + `/examples/email_1_expected_decision_card.md`
-- `/examples/email_2.txt` + `/examples/email_2_expected_decision_card.md`
-- `/examples/email_3.txt` + `/examples/email_3_expected_decision_card.md`
+**Outputs**
+- Decision Context Card.
+- Suggested route + operator decision record.
+- Draft reply (not auto-sent).
+
+## Edge Cases Covered
+- Low-confidence classification.
+- Missing required context (incomplete request).
+- Potentially sensitive/high-impact requests.
+- Conflicting signals (urgent tone vs low operational risk).
+
+## KPIs (Planned)
+- Triage cycle time.
+- First-pass routing accuracy.
+- % cases requiring human escalation.
+- Rework rate after operator review.
+
+> Note: KPI improvement claims are intentionally omitted until baseline and measured results are collected.
 
 ## Documentation
-- Architecture: `/docs/architecture.md`
-- Guardrails (safety): `/docs/guardrails.md`
-- Evaluation rubric: `/docs/evaluation.md`
-- Privacy & logging: `/docs/privacy.md`
-- Reasoning prompts: `/agent_reasoning.md`
-- Portfolio audit: `/docs/portfolio_audit.md`
+- [Architecture](docs/architecture.md)
+- [Guardrails](docs/guardrails.md)
+- [Evaluation Rubric](docs/evaluation.md)
+- [Privacy](docs/privacy.md)
+- [Portfolio Audit](docs/portfolio_audit.md)
+- [Agent Reasoning](agent_reasoning.md)
 
-## Roles
-- Operations/Process Analyst
-- Reporting/Data Quality
-- Decision Support
+## Quick Demo / Artifacts
+> This repository is documentation-first (case study + artifacts). It does not include a production runtime yet.
 
-### What this proves
-- Decision context can be standardized without auto-execution.
-- Risk and intent can be surfaced consistently for operator review.
-- Drafts can be produced safely under strict guardrails.
-- Evaluation criteria are explicit and auditable (see rubric).
-- Privacy/logging boundaries are defined, including no PII storage.
+- Synthetic sample emails and expected decision cards in [`examples/`](examples/).
+- Architecture and controls documentation in [`docs/`](docs/).
+- Sanity check for examples:
+  ```bash
+  python scripts/sanity_check.py
+  ```
 
-## Consistency: Not Automation
-- No auto-send, no deletion, no autonomous actions.
-- Human operator is always the final decision maker.
+## Power Platform Implementation Mapping
+- **Power Apps**: intake/review UI for each email case, with operator decision capture.
+- **Power Automate**: orchestration flow for classification handoff, routing rules, approvals, and notifications.
+- **Outlook/Exchange Connector + Shared Mailbox**: monitored intake channel for operational emails.
+- **SharePoint or Dataverse**: persistent case records, labels, and decision logs.
+- **Teams + Approvals**: human-in-the-loop gate for escalations and exceptions.
+
+## What This Proves
+- Ability to model a credible operations workflow with clear handoffs.
+- Human-in-the-loop decision design (not blind automation).
+- Governance mindset: guardrails, auditability, and documented edge-case handling.
+- Readiness for Junior Business Automation / Power Platform analyst roles.
